@@ -16,7 +16,7 @@ def save_uploaded_file(uploaded_file):
             f.write(uploaded_file.getbuffer())
         return file_path
     except Exception as e:
-        st.error(f"Error saving file: {str(e)}")
+        st.error(f"Error saving file: {str(e)} while accessing {file_path}")
         return None
 
 def read_pdf(file_path):
@@ -27,7 +27,7 @@ def read_pdf(file_path):
             text += page.extract_text() + "\n"
         return text
     except Exception as e:
-        st.error(f"Error reading PDF: {str(e)}")
+        st.error(f"Error reading PDF: {str(e)} while accessing {file_path}")
         return None
 
 def main():
